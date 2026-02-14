@@ -1,0 +1,43 @@
+body{ background:#0b1220; color: rgba(255,255,255,.92); }
+
+.sidebar{
+  min-height: 100vh;
+  background: rgba(255,255,255,.06);
+  border-right: 1px solid rgba(255,255,255,.12);
+  padding: 18px;
+}
+
+.sidebar a{
+  display:block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  text-decoration:none;
+  color: rgba(255,255,255,.86);
+  border: 1px solid transparent;
+}
+
+.sidebar a:hover{
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.12);
+}
+
+.card-glass{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 18px;
+}
+
+.table thead th{
+  color: rgba(255,255,255,.75);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.table td{
+  color: rgba(255,255,255,.86);
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+.form-control, .form-select{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  color: rgba(255,255,255,.9);
+}
+.form-control::placeholder{ color: rgba(255,255,255,.45); }
