@@ -1,0 +1,190 @@
+/* ============================
+   VARIABLES (MODO CLARO)
+============================ */
+:root{
+  --fondo: #f8fafc;
+  --card: #ffffff;
+
+  --azul: #3b82f6;
+  --azul-hover: #2563eb;
+
+  --rojo: #ef4444;
+  --verde: #22c55e;
+  --amarillo: #facc15;
+
+  --texto: #1f2937;
+  --texto-suave: #6b7280;
+
+  --borde: #e5e7eb;
+
+  --navbar: #60a5fa;
+
+  --shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+/* ============================
+   VARIABLES (MODO OSCURO)
+   Se activa cuando body tiene class="dark"
+============================ */
+body.dark{
+  --fondo: #0f172a;
+  --card: #111827;
+
+  --azul: #60a5fa;
+  --azul-hover: #3b82f6;
+
+  --rojo: #f87171;
+  --verde: #4ade80;
+  --amarillo: #fde047;
+
+  --texto: #f1f5f9;
+  --texto-suave: #cbd5e1;
+
+  --borde: #1f2937;
+
+  --navbar: #1e293b;
+
+  --shadow: 0 2px 10px rgba(0,0,0,0.35);
+}
+
+/* ============================
+   GENERAL
+============================ */
+body{
+  background-color: var(--fondo);
+  color: var(--texto);
+  transition: background-color .2s ease, color .2s ease;
+}
+
+/* ============================
+   NAVBAR
+============================ */
+.navbar{
+  background-color: var(--navbar) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.navbar-brand,
+.nav-link{
+  color: #ffffff !important;
+}
+
+.nav-link:hover{
+  opacity: 0.85;
+}
+
+/* Botón del toggle */
+.theme-toggle{
+  border: 1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.18);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.theme-toggle:hover{
+  background: rgba(255,255,255,.28);
+}
+
+/* ============================
+   CARDS
+============================ */
+.card{
+  background: var(--card);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: background-color .2s ease, border-color .2s ease;
+}
+
+/* ============================
+   TABLAS
+============================ */
+.table{
+  color: var(--texto);
+}
+
+.table thead th{
+  color: var(--texto-suave);
+  border-bottom: 2px solid var(--borde);
+}
+
+.table td,
+.table th{
+  border-bottom: 1px solid var(--borde);
+}
+
+/* Fix para que bootstrap no meta fondos raros */
+.table-hover tbody tr:hover{
+  background: rgba(59,130,246,0.08);
+}
+
+/* ============================
+   BOTONES
+============================ */
+.btn-light{
+  background-color: var(--azul);
+  color: white;
+  border: none;
+}
+
+.btn-light:hover{
+  background-color: var(--azul-hover);
+  color: white;
+}
+
+.btn-outline-light{
+  border: 1px solid var(--azul);
+  color: var(--azul);
+}
+
+.btn-outline-light:hover{
+  background-color: var(--azul);
+  color: white;
+}
+
+.btn-outline-danger{
+  border: 1px solid var(--rojo);
+  color: var(--rojo);
+}
+
+.btn-outline-danger:hover{
+  background-color: var(--rojo);
+  color: white;
+}
+
+/* ============================
+   BADGES
+============================ */
+.badge-soft{
+  background-color: var(--verde);
+  color: white;
+}
+
+.badge.bg-warning{
+  background-color: var(--amarillo) !important;
+  color: #111827 !important;
+}
+
+/* ============================
+   FORMULARIOS
+============================ */
+.form-control,
+.form-select{
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--texto);
+}
+
+.form-control:focus,
+.form-select:focus{
+  border-color: var(--azul);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.20);
+}
+
+/* Placeholder en dark */
+body.dark ::placeholder{
+  color: rgba(241,245,249,0.65);
+}
