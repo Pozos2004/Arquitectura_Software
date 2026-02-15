@@ -1,133 +1,95 @@
-// Datos demo para la vista pública (sin BD)
-const demoData = {
+const data = {
   profile: {
-    name: "Tu Nombre",
-    role: "Estudiante de Contaduría e Ing. TI",
-    bio: "Portafolio en construcción: proyectos, habilidades y experiencia. Aquí irá tu historia corta.",
-    email: "tu-correo@ejemplo.com",
+    name: "Tu Nombre Aquí",
+    role: "Estudiante de Contaduría e Ingeniería en TI",
+    bio: "Soy estudiante con enfoque en desarrollo web, bases de datos y arquitectura en capas.",
+    email: "tuemail@gmail.com",
     github: "https://github.com/",
     linkedin: "https://linkedin.com/"
   },
+
   projects: [
-    { id: 1, title: "ProductApp", desc: "Catálogo tipo e-commerce con admin y estadísticas.", tech: ["HTML","JS","MySQL"], repo:"#", demo:"#", featured:true },
-    { id: 2, title: "Sistema de Calificaciones", desc: "Gestión de calificaciones y asistencias por semestre.", tech: ["PHP","Bootstrap"], repo:"#", demo:"#", featured:true },
-    { id: 3, title: "Inventario Tienda", desc: "Control de stock, categorías y proveedores.", tech: ["CRUD","Capas"], repo:"#", demo:"#", featured:false },
+    {
+      title: "Sistema de Gestión de Inventario",
+      description: "Aplicación CRUD para controlar productos y stock.",
+      technologies: ["HTML", "Bootstrap", "JavaScript"]
+    },
+    {
+      title: "Sistema de Calificaciones BUAP",
+      description: "Sistema para docentes que gestiona asistencias y calificaciones.",
+      technologies: ["PHP", "MySQL"]
+    }
   ],
+
   skills: [
-    { name:"HTML/CSS", level:80, cat:"Frontend" },
-    { name:"JavaScript", level:70, cat:"Frontend" },
-    { name:"PHP", level:65, cat:"Backend" },
-    { name:"MySQL", level:60, cat:"Base de Datos" },
-    { name:"Git/GitHub", level:70, cat:"Tools" }
+    { name: "HTML/CSS", level: 80 },
+    { name: "JavaScript", level: 70 },
+    { name: "MySQL", level: 65 }
   ],
+
   experience: [
-    { company:"BUAP (Proyecto escolar)", role:"Desarrollador/a", from:"2025", to:"Actual", points:["CRUD", "Capas", "Documentación"] }
+    {
+      role: "Desarrollador/a Web",
+      company: "Proyecto Escolar",
+      period: "2025 - Actualidad"
+    }
   ]
 };
 
-function renderFeaturedProjects() {
-  const wrap = document.querySelector("#featuredProjects");
-  if(!wrap) return;
-  wrap.innerHTML = "";
+document.addEventListener("DOMContentLoaded", () => {
 
-  const featured = demoData.projects.filter(p=>p.featured);
-  featured.forEach(p=>{
-    const techBadges = p.tech.map(t=>`<span class="badge rounded-pill badge-tech me-1">${t}</span>`).join("");
-    wrap.insertAdjacentHTML("beforeend", `
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-glass h-100 p-3">
-          <div class="d-flex align-items-start justify-content-between">
-            <h5 class="mb-1">${p.title}</h5>
-            <span class="badge text-bg-success">Destacado</span>
-          </div>
-          <p class="muted mb-2">${p.desc}</p>
-          <div class="mb-3">${techBadges}</div>
-          <div class="mt-auto d-flex gap-2">
-            <a class="btn btn-sm btn-soft" href="project.html?id=${p.id}">Ver detalle</a>
-            <a class="btn btn-sm btn-outline-light" href="${p.repo}">Repo</a>
-          </div>
-        </div>
-      </div>
-    `);
-  });
-}
+  // Perfil
+  document.getElementById("pName").textContent = data.profile.name;
+  document.getElementById("pRole").textContent = data.profile.role;
+  document.getElementById("pBio").textContent = data.profile.bio;
+  document.getElementById("pEmail").textContent = data.profile.email;
+  document.getElementById("pGitHub").href = data.profile.github;
+  document.getElementById("pLinkedIn").href = data.profile.linkedin;
 
-function renderSkills() {
-  const wrap = document.querySelector("#skillsWrap");
-  if(!wrap) return;
-  wrap.innerHTML = "";
-  const byCat = demoData.skills.reduce((acc,s)=>{
-    acc[s.cat] ??= [];
-    acc[s.cat].push(s);
-    return acc;
-  },{});
-
-  Object.entries(byCat).forEach(([cat, items])=>{
-    const rows = items.map(s=>`
-      <div class="mb-3">
-        <div class="d-flex justify-content-between">
-          <span>${s.name}</span>
-          <span class="muted">${s.level}%</span>
-        </div>
-        <div class="progress" style="height:10px;background:rgba(255,255,255,.10)">
-          <div class="progress-bar" role="progressbar" style="width:${s.level}%"></div>
-        </div>
-      </div>
-    `).join("");
-    wrap.insertAdjacentHTML("beforeend", `
+  // Proyectos
+  const projectsWrap = document.getElementById("projectsWrap");
+  data.projects.forEach(p => {
+    projectsWrap.innerHTML += `
       <div class="col-md-6">
-        <div class="card card-glass p-3 h-100">
-          <h6 class="mb-3">${cat}</h6>
-          ${rows}
-        </div>
-      </div>
-    `);
-  });
-}
-
-function renderExperience() {
-  const wrap = document.querySelector("#xpWrap");
-  if(!wrap) return;
-  wrap.innerHTML = "";
-
-  demoData.experience.forEach(x=>{
-    const pts = x.points.map(p=>`<li class="muted">${p}</li>`).join("");
-    wrap.insertAdjacentHTML("beforeend", `
-      <div class="card card-glass p-3 mb-3">
-        <div class="d-flex justify-content-between flex-wrap gap-2">
+        <div class="card card-glass p-3">
+          <h5>${p.title}</h5>
+          <p>${p.description}</p>
           <div>
-            <h6 class="mb-1">${x.role}</h6>
-            <div class="muted">${x.company}</div>
+            ${p.technologies.map(t => `<span class="badge bg-secondary me-1">${t}</span>`).join("")}
           </div>
-          <div class="muted">${x.from} - ${x.to}</div>
         </div>
-        <div class="divider"></div>
-        <ul class="mb-0">${pts}</ul>
       </div>
-    `);
+    `;
   });
-}
 
-function fillProfile() {
-  const p = demoData.profile;
-  const name = document.querySelector("#pName");
-  const role = document.querySelector("#pRole");
-  const bio  = document.querySelector("#pBio");
-  const email= document.querySelector("#pEmail");
-  const gh   = document.querySelector("#pGitHub");
-  const li   = document.querySelector("#pLinkedIn");
+  // Habilidades
+  const skillsWrap = document.getElementById("skillsWrap");
+  data.skills.forEach(s => {
+    skillsWrap.innerHTML += `
+      <div class="col-md-6">
+        <div class="card card-glass p-3">
+          <div class="d-flex justify-content-between">
+            <span>${s.name}</span>
+            <span>${s.level}%</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar" style="width:${s.level}%"></div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
 
-  if(name) name.textContent = p.name;
-  if(role) role.textContent = p.role;
-  if(bio)  bio.textContent  = p.bio;
-  if(email) email.textContent = p.email;
-  if(gh) gh.href = p.github;
-  if(li) li.href = p.linkedin;
-}
+  // Experiencia
+  const experienceWrap = document.getElementById("experienceWrap");
+  data.experience.forEach(e => {
+    experienceWrap.innerHTML += `
+      <div class="card card-glass p-3 mb-3">
+        <h5>${e.role}</h5>
+        <p>${e.company}</p>
+        <small>${e.period}</small>
+      </div>
+    `;
+  });
 
-document.addEventListener("DOMContentLoaded", ()=>{
-  fillProfile();
-  renderFeaturedProjects();
-  renderSkills();
-  renderExperience();
 });
