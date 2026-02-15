@@ -31,10 +31,10 @@
 <header class="hero">
   <div class="container">
     <div class="card card-glass p-4">
-      <h1 id="pName"></h1>
-      <h5 class="text-muted" id="pRole"></h5>
-      <p id="pBio"></p>
-      <div class="d-flex gap-2">
+      <h1 id="pName">Tu Nombre Aquí</h1>
+      <h5 id="pRole">Estudiante de Contaduría e Ingeniería en TI</h5>
+      <p id="pBio">Soy estudiante con enfoque en desarrollo web, bases de datos y arquitectura en capas.</p>
+      <div class="d-flex gap-2 mt-3">
         <a id="pGitHub" class="btn btn-outline-light" target="_blank">GitHub</a>
         <a id="pLinkedIn" class="btn btn-outline-light" target="_blank">LinkedIn</a>
       </div>
@@ -42,31 +42,45 @@
   </div>
 </header>
 
+<section id="about" class="section">
+  <div class="container">
+    <div class="card card-glass p-4">
+      <h2>Sobre mí</h2>
+      <p class="muted mb-0">
+        Aquí puedes escribir un resumen corto sobre ti: qué estudias, qué te interesa, y qué tipo de proyectos te gusta construir.
+      </p>
+    </div>
+  </div>
+</section>
+
 <section id="projects" class="section">
   <div class="container">
-    <h2>Proyectos</h2>
+    <h2 class="mb-3">Proyectos</h2>
     <div class="row g-3" id="projectsWrap"></div>
   </div>
 </section>
 
 <section id="skills" class="section">
   <div class="container">
-    <h2>Habilidades</h2>
+    <h2 class="mb-3">Habilidades</h2>
     <div class="row g-3" id="skillsWrap"></div>
   </div>
 </section>
 
 <section id="experience" class="section">
   <div class="container">
-    <h2>Experiencia</h2>
+    <h2 class="mb-3">Experiencia</h2>
     <div id="experienceWrap"></div>
   </div>
 </section>
 
 <section id="contact" class="section">
   <div class="container">
-    <h2>Contacto</h2>
-    <p>Email: <span id="pEmail"></span></p>
+    <div class="card card-glass p-4">
+      <h2>Contacto</h2>
+      <p class="muted mb-1">Email:</p>
+      <p class="mb-0 fw-semibold" id="pEmail"></p>
+    </div>
   </div>
 </section>
 

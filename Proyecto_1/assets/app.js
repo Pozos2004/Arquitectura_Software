@@ -11,12 +11,12 @@ const data = {
   projects: [
     {
       title: "Sistema de Gestión de Inventario",
-      description: "Aplicación CRUD para controlar productos y stock.",
+      description: "Aplicación CRUD para controlar productos, categorías y stock.",
       technologies: ["HTML", "Bootstrap", "JavaScript"]
     },
     {
       title: "Sistema de Calificaciones BUAP",
-      description: "Sistema para docentes que gestiona asistencias y calificaciones.",
+      description: "Sistema para docentes que gestiona asistencias y calificaciones por semestre.",
       technologies: ["PHP", "MySQL"]
     }
   ],
@@ -38,58 +38,74 @@ const data = {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Perfil
-  document.getElementById("pName").textContent = data.profile.name;
-  document.getElementById("pRole").textContent = data.profile.role;
-  document.getElementById("pBio").textContent = data.profile.bio;
-  document.getElementById("pEmail").textContent = data.profile.email;
-  document.getElementById("pGitHub").href = data.profile.github;
-  document.getElementById("pLinkedIn").href = data.profile.linkedin;
+  // Perfil (si existe el elemento, lo llena)
+  const pName = document.getElementById("pName");
+  const pRole = document.getElementById("pRole");
+  const pBio  = document.getElementById("pBio");
+  const pEmail= document.getElementById("pEmail");
+  const pGit  = document.getElementById("pGitHub");
+  const pLin  = document.getElementById("pLinkedIn");
+
+  if(pName) pName.textContent = data.profile.name;
+  if(pRole) pRole.textContent = data.profile.role;
+  if(pBio)  pBio.textContent  = data.profile.bio;
+  if(pEmail) pEmail.textContent = data.profile.email;
+  if(pGit) pGit.href = data.profile.github;
+  if(pLin) pLin.href = data.profile.linkedin;
 
   // Proyectos
   const projectsWrap = document.getElementById("projectsWrap");
-  data.projects.forEach(p => {
-    projectsWrap.innerHTML += `
-      <div class="col-md-6">
-        <div class="card card-glass p-3">
-          <h5>${p.title}</h5>
-          <p>${p.description}</p>
-          <div>
-            ${p.technologies.map(t => `<span class="badge bg-secondary me-1">${t}</span>`).join("")}
+  if(projectsWrap){
+    projectsWrap.innerHTML = "";
+    data.projects.forEach(p => {
+      projectsWrap.innerHTML += `
+        <div class="col-md-6">
+          <div class="card card-glass p-3 h-100">
+            <h5 class="mb-2">${p.title}</h5>
+            <p class="muted">${p.description}</p>
+            <div class="mt-2">
+              ${p.technologies.map(t => `<span class="badge me-1">${t}</span>`).join("")}
+            </div>
           </div>
         </div>
-      </div>
-    `;
-  });
+      `;
+    });
+  }
 
   // Habilidades
   const skillsWrap = document.getElementById("skillsWrap");
-  data.skills.forEach(s => {
-    skillsWrap.innerHTML += `
-      <div class="col-md-6">
-        <div class="card card-glass p-3">
-          <div class="d-flex justify-content-between">
-            <span>${s.name}</span>
-            <span>${s.level}%</span>
-          </div>
-          <div class="progress">
-            <div class="progress-bar" style="width:${s.level}%"></div>
+  if(skillsWrap){
+    skillsWrap.innerHTML = "";
+    data.skills.forEach(s => {
+      skillsWrap.innerHTML += `
+        <div class="col-md-6">
+          <div class="card card-glass p-3">
+            <div class="d-flex justify-content-between">
+              <span>${s.name}</span>
+              <span class="muted">${s.level}%</span>
+            </div>
+            <div class="progress mt-2" style="height:10px;">
+              <div class="progress-bar" style="width:${s.level}%"></div>
+            </div>
           </div>
         </div>
-      </div>
-    `;
-  });
+      `;
+    });
+  }
 
   // Experiencia
   const experienceWrap = document.getElementById("experienceWrap");
-  data.experience.forEach(e => {
-    experienceWrap.innerHTML += `
-      <div class="card card-glass p-3 mb-3">
-        <h5>${e.role}</h5>
-        <p>${e.company}</p>
-        <small>${e.period}</small>
-      </div>
-    `;
-  });
+  if(experienceWrap){
+    experienceWrap.innerHTML = "";
+    data.experience.forEach(e => {
+      experienceWrap.innerHTML += `
+        <div class="card card-glass p-3 mb-3">
+          <h5 class="mb-1">${e.role}</h5>
+          <div class="muted">${e.company}</div>
+          <div class="muted">${e.period}</div>
+        </div>
+      `;
+    });
+  }
 
 });

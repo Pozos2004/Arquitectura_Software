@@ -1,11 +1,11 @@
 :root{
-  --bg: #0f172a;          /* azul oscuro elegante */
-  --bg2: #1e293b;         /* tono secundario */
+  --bg: #0f172a;
+  --bg2: #1e293b;
   --card: rgba(255,255,255,0.08);
   --stroke: rgba(255,255,255,0.18);
-  --text: #f1f5f9;        /* blanco suave */
-  --muted: #cbd5e1;       /* gris claro */
-  --accent: #38bdf8;      /* azul brillante */
+  --text: #f1f5f9;
+  --muted: #cbd5e1;
+  --accent: #38bdf8;
 }
 
 body{
@@ -41,7 +41,7 @@ h1, h2, h3, h4, h5{
   font-weight: 700;
 }
 
-p{
+.muted, p{
   color: var(--muted);
 }
 
@@ -71,4 +71,24 @@ p{
 footer{
   border-top: 1px solid var(--stroke);
   color: var(--muted);
+}
+
+/* --- Corrección de contraste del Hero --- */
+
+#pName {
+  color: #ffffff !important;
+  font-size: 2.8rem;
+  font-weight: 800;
+}
+
+#pRole {
+  color: #e2e8f0 !important;
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+
+#pBio {
+  color: #cbd5e1 !important;
+  margin-top: 15px;
+  font-size: 1.05rem;
 }
