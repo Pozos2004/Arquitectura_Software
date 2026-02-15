@@ -1,21 +1,22 @@
 :root{
-  --bg: #0b1220;
-  --card: rgba(255,255,255,.06);
-  --stroke: rgba(255,255,255,.12);
-  --text: rgba(255,255,255,.92);
-  --muted: rgba(255,255,255,.68);
+  --bg: #0f172a;          /* azul oscuro elegante */
+  --bg2: #1e293b;         /* tono secundario */
+  --card: rgba(255,255,255,0.08);
+  --stroke: rgba(255,255,255,0.18);
+  --text: #f1f5f9;        /* blanco suave */
+  --muted: #cbd5e1;       /* gris claro */
+  --accent: #38bdf8;      /* azul brillante */
 }
 
 body{
-  background: radial-gradient(1200px 600px at 20% 0%, rgba(0,140,255,.18), transparent),
-              radial-gradient(900px 600px at 80% 20%, rgba(160,80,255,.16), transparent),
-              var(--bg);
+  background: linear-gradient(135deg, var(--bg), var(--bg2));
   color: var(--text);
+  min-height: 100vh;
 }
 
 .navbar{
-  backdrop-filter: blur(10px);
-  background: rgba(11,18,32,.55) !important;
+  background: rgba(15,23,42,0.85) !important;
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--stroke);
 }
 
@@ -26,43 +27,48 @@ body{
 .card-glass{
   background: var(--card);
   border: 1px solid var(--stroke);
-  border-radius: 18px;
-}
-
-.badge-tech{
-  background: rgba(255,255,255,.10);
-  border: 1px solid rgba(255,255,255,.14);
-}
-
-.muted{ color: var(--muted); }
-
-.hero{
-  padding: 110px 0 70px;
-}
-
-.hero .title{
-  font-weight: 800;
-  letter-spacing: .2px;
-}
-
-.btn-soft{
-  background: rgba(255,255,255,.10);
-  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
   color: var(--text);
 }
-.btn-soft:hover{ background: rgba(255,255,255,.14); }
 
-.divider{
-  height: 1px;
-  background: rgba(255,255,255,.12);
-  margin: 18px 0;
+.hero{
+  padding: 120px 0 80px;
 }
 
-a{ color: rgba(160,210,255,.95); }
-a:hover{ color: rgba(200,230,255,1); }
+h1, h2, h3, h4, h5{
+  color: var(--text);
+  font-weight: 700;
+}
+
+p{
+  color: var(--muted);
+}
+
+.badge{
+  background: rgba(255,255,255,0.15);
+  color: var(--text);
+}
+
+.progress{
+  background: rgba(255,255,255,0.12);
+}
+
+.progress-bar{
+  background: var(--accent);
+}
+
+.btn-outline-light{
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-outline-light:hover{
+  background: var(--accent);
+  color: #0f172a;
+}
 
 footer{
-  border-top: 1px solid rgba(255,255,255,.10);
-  padding: 28px 0;
+  border-top: 1px solid var(--stroke);
   color: var(--muted);
 }
