@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require __DIR__ . '/_base.php'; // define $BASE automáticamente
+require __DIR__ . '/_base.php'; 
 ?>
 <!doctype html>
 <html lang="es">

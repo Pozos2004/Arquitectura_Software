@@ -5,7 +5,7 @@ require_once __DIR__ . '/../src/infra/Database.php';
 require_once __DIR__ . '/../src/infra/repositories/ProductoRepository.php';
 require_once __DIR__ . '/../src/app/ProductService.php';
 
-require __DIR__ . '/_base.php'; // $BASE
+require __DIR__ . '/_base.php'; 
 
 $pdo = Database::pdo();
 $repo = new ProductoRepository($pdo);

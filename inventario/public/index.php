@@ -6,7 +6,7 @@ require_once __DIR__ . '/../src/infra/repositories/ProductoRepository.php';
 require_once __DIR__ . '/../src/infra/repositories/CategoriaRepository.php';
 require_once __DIR__ . '/../src/infra/repositories/ProveedorRepository.php';
 
-require __DIR__ . '/_base.php'; // <- $BASE automático
+require __DIR__ . '/_base.php'; 
 
 $pdo = Database::pdo();
 $prodRepo = new ProductoRepository($pdo);
@@ -58,14 +58,13 @@ require __DIR__ . '/_layout_top.php';
   <div class="d-flex align-items-center justify-content-between mb-2">
     <h2 class="h5 mb-0">Productos con stock bajo</h2>
 
-    <!-- AQUÍ estaba el error: ahora usa $BASE -->
     <a class="btn btn-sm btn-outline-light" href="<?= $BASE ?>/public/productos.php">
       Ver productos
     </a>
   </div>
 
   <?php if (!$low): ?>
-    <div class="text-secondary">Todo en orden. El almacén ronronea 🐱</div>
+    <div class="text-secondary">Todo en orden.</div>
   <?php else: ?>
     <div class="table-responsive">
       <table class="table table-sm align-middle">

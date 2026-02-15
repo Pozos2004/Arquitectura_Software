@@ -4,7 +4,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/../src/infra/Database.php';
 require_once __DIR__ . '/../src/infra/repositories/CategoriaRepository.php';
 
-require __DIR__ . '/_base.php'; // $BASE
+require __DIR__ . '/_base.php'; 
 
 $repo = new CategoriaRepository(Database::pdo());
 $rows = $repo->all();
